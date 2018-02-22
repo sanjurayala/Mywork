@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+    <title>Department of Compueter science at Texas southern University</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        #map {
+            height: 200px;
+            width: 600px;
+        }
+        .img-responsive {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="margin-bottom:0px; border-radius: 4px;">
+        <button style="color:#75263b" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <P style="" class="navbar-header">
+            <img alt="Brand" class="navbar-brand" style="padding:0px" src="logo.png">
+            <a href="home-page.html" class="navbar-brand" style="color:#75263b;">
+                <strong style="font-size:30px;">Texas Southern University</strong>
+                <br />Computer Science
+            </a>
+        </P>
+        <div class="collapse navbar-collapse">
+            <ul style="font-size:large;" class="nav navbar-nav navbar-right">
+                <li><a href="about-us.html" style="color:#75263b;">About US</a></li>
+                <li><a href="contact-us.html" style="color:#75263b;">Contact US</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="contact-us.html" style="color:#75263b;">Students <span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="color:#75263b;">
+                        <li><a href="students.html">Future Students</a></li>
+                        <li><a href="students.html">Transfer Students</a></li>
+                        <li><a href="students.html">Current Students</a></li>
+                    </ul>
+                </li>
+                <li><a href="faculty.html" style="color:#75263b;">Faculty</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div class="container-fluid ">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 caseClosed border">
+                <div class="text-center">
+                    <img class="rounded" style="margin-top:30px;" alt="Brand" src="department.png">
+                </div>
+                <div class="">
+                    <p>
+                        <br />
+                        <h4 style="color:#75362b;margin:0px"> Texas Southern University (1951-Present)</h4>
+                        <br />
+                        <br/>
+                        On June 1, 1951, the name of this new university for Negroes was changed from Texas State University for Negroes to Texas Southern University after students petitioned the state legislature to remove the phrase “for Negroes.”
+                        <br />
+                        When the university opened its doors in September 1947, it had 2,300 students, two schools, one division and one college – the Law School, the Pharmacy School, the Vocational Division, and the College of Arts and Sciences. Responding to the changing times, in 1973, the 63rd Legislature designated Texas Southern University as a “special purpose” institution for urban programming. As a result, four more academic units were added – the College of Education, the School of Public Affairs, the School of Communications and the Weekend College. This designation described what Texas Southern University was doing from its inception – embracing diversity.
+                        <br />
+                        Today, Texas Southern University offers bachelor’s, master’s and doctoral degree programs in the following academic colleges and schools: the College of Liberal Arts and Behavioral Sciences; the College of Pharmacy and Health Sciences; the College of Science and Technology; the College of Education; the Barbara Jordan-Mickey Leland School of Public Affairs; the School of Communication; the Thurgood Marshall School of Law; the Jesse H. Jones School of Business; the Thomas Freeman Honors College; the College of Continuing Education and the Graduate School. Other programmatic emphases are found in the Center for Excellence in Urban Education, the Center for Transportation Training and Research, the Center on the Family and a variety of special programs and projects.
+                        <br />
+                        Currently, Texas Southern University is staffed by approximately 1,000 faculty members and support personnel. More than 9,500 students, representing ethnically and culturally diverse backgrounds, are currently enrolled at the university.
+                        <br />
+                        <br />
+                        <h4 style="color:#75362b;margin:0px "> Computer Science</h4>
+                        <br />
+                        Texas Southern University, needed a person to head the computer science program. Dr. Criner became the first head of the Department of Computer Science at Texas Southern University in September 1976. He built a student body from 50 in 1976 to over 700 in 1984, when he left the position to become the Founding Dean of the College of Science and Technology.
+                    </p>
+                    <!--<a style="cursor: pointer;" id="read-more">readmore... </a>
+                                <div id="click" class="box">
+                                    <div class="box-content">
+                                        <span class="close">&times;</span>
+                            <p>
+                                Setting Up Project in Project Management System (Design, Dev, SEO, Social Media, Mobile App’s, etc –
+                                depending on level of services subscribed to)
+                                Establish Tasks, Responsible Parties
+                                Watch the Getting Started Videos
+                                Setting Up and Installing Proper Software
+                            </p>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <script>
+            var btn = document.getElementById('read-more');
+            var box = document.getElementById('click');
+            var span = document.getElementsByClassName('close')[0];
+            btn.onclick = function () {
+                box.style.display = 'block';
+            }
+            span.onclick = function () {
+                box.style.display = 'none';
+            }
+            window.onclick = function (x) {
+                if (x.target == box) {
+                    box.style.display = 'none';
+                }
+            }
+        </script>
+
+    </section>
+    <br />
+    
+    <footer style="background-color:#464646">
+        <div style="padding:0px" class="container-fluid">
+            <div class="col-md-2">
+                <h4 style="color:#eceeef">Contact us</h4>
+                <address style="color:white">
+                    Texas Southern University
+                    <br />3100 Cleburne Street
+                    <br />Houston, TX 77004
+                    <br />Phone: (713) 313-7011
+                    <br />Fax: (713) 313-7851
+                    <br /> Email:
+                    <a href="mailto:sanjayrayala@live.com">
+                        <span>sanjayrayala@live.com</span>
+                    </a>
+                </address>
+            </div>
+            <div class="col-md-6" style="margin-bottom:8px">
+                <h4 style="color:#eceeef">Our location</h4>
+                <div id="map">MAP</div>
+                <script>
+                    function initMap() {
+                        var uluru = { lat: 29.722947, lng: -95.366010 };
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 16,
+                            center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4o4c8ffYYbS8Jp2A8zIOXQ4CUPGWpRGk&callback=initMap">
+                </script>
+            </div>
+            <div class="col-md-4">
+                <h4 style="color: #eceeef;">Quick links</h4>
+                <ul style="color:white">
+                    <li><a href="#">Enrollment Mgmt. - Texas Southern Univ.</a></li>
+                    <li><a href="#">Academic Calendar - Texas Southern Univ.</a></li>
+                    <li><a href="#">Blackboard Login @ - Texas Southern Univ.</a></li>
+                    <li><a href="#">My TSU Web - Texas Southern Univ.</a></li>
+                    <li><a href="#">Computer Science Job Board</a></li>
+                    <li><a href="#">Association for Computing Machinery</a></li>
+                    <li><a href="#">IEEE Computer Society</a></li>
+                    <li><a href="#">IEEE (Inst. of Electrical & Electronics Engr.)</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <footer style="background-color:#383838">
+        <p style="color:#eceeef">
+            CopyRights &copy; Sanjay Rayala
+        </p>
+    </footer>
+</body>
+</html>

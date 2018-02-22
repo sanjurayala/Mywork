@@ -1,0 +1,36 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <title>Learning JavaScript</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+	
+</head>
+
+<body>
+	
+	<p> Guess the number between 0 to 5? </p>
+	<input id="answer"/>
+	<button id="myButton"> Submit </button>
+	
+	
+	<script type="text/javascript">
+			document.getElementById("myButton").onclick=function(){
+				var x=Math.random();
+				x=6*x; // from 0 to 5 excluding 6
+				x=Math.floor(x); // rounds x down to nearest whole number below x
+				
+				if(x==document.getElementById("answer").value) {
+					alert("Your number is correct!");
+				}
+				else{
+					alert("That is incorrect and correct number is:" +x);
+				}
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"></script>
+    <title>Department of Compueter science at Texas southern University</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        #map {
+            height: 200px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body >
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="margin-bottom:0px; border-radius: 4px;">
+        <button style="color:#75263b" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+            <P style="" class="navbar-header">
+                <img alt="Brand" class="navbar-brand" style="padding:0px" src="logo.png">
+                <a href="home-page.html" class="navbar-brand" style="color:#75263b;">
+                    <strong style="font-size:30px;">Texas Southern University</strong>
+                    <br />Computer Science
+                </a>
+            </P>
+            <div class="collapse navbar-collapse" >
+                <ul style="font-size:large;" class="nav navbar-nav navbar-right">
+                    <li><a href="about-us.html" style="color:#75263b;">About US</a></li>
+                    <li><a href="contact-us.html" style="color:#75263b;">Contact US</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contact-us.html" style="color:#75263b;">Students <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="color:#75263b;">
+                            <li><a href="students.html">Future Students</a></li>
+                            <li><a href="students.html">Transfer Students</a></li>
+                            <li><a href="students.html">Current Students</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="faculty.html" style="color:#75263b;">Faculty</a></li>                    
+                </ul>
+            </div>
+    </nav>
+        <div>
+            <video autoplay="autoplay" width="100%" height="auto" loop="loop" muted="muted" preload="none">
+                <source src="sample.mp4" type="video/mp4">
+                <source src="sample.ogg" type="video/ogg">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    <section>
+        <div class="container-fluid ">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 caseClosed border media">
+                <div style="text-align:initial" class="media-left">
+                    <img class="image-size media-object" style="margin-top:30px;" alt="Brand" src="logo.png">
+                    </div>
+                <div class="media-body">
+                    <p>
+                        <br />
+                        Welcome to the Department of Computer Science (CS) at Texas Southern University (TSU) and thank you for visiting our website.<br/>
+                        On behalf of the students, faculty, and staff, We invite you to explore the many learning and cultural opportunities available at TSU and the CS Department.<br />
+                        In joining our CS department, students experience the TSU commitment to quality education, a special sense of belonging and the chance to develop relationships that will last a lifetime. The CS department offers a Bachelor of Science degree in Computer Science with a General CS Concentration, a Bachelor of Science degree in Computer Science with Computer Networks Concentration and a Master of Science degree in Computer Science. Our experienced faculty, small size classes and dynamic CS student organizations allow our students to develop a close and positive working relationship with their instructors and their peers.<br />
+                        Please search our website for the academic program that best meets your needs and contact us if you need more information. We invite you to call the CS department at 713-313-7991 or send an email to Ghemri_lx@tsu.edu with any questions, concerns or comments you may have. We look forward to meeting you at TSU campus at your convenience.
+                    </p>
+                    <!--<a style="cursor: pointer;" id="read-more">readmore... </a>
+                    <div id="click" class="box">
+                        <div class="box-content">
+                            <span class="close">&times;</span>
+                <p>
+                    Setting Up Project in Project Management System (Design, Dev, SEO, Social Media, Mobile App’s, etc –
+                    depending on level of services subscribed to)
+                    Establish Tasks, Responsible Parties
+                    Watch the Getting Started Videos
+                    Setting Up and Installing Proper Software
+                </p>
+            </div>
+        </div>-->
+        </div>
+        </div>
+            <div class="col-md-1"></div>
+        </div>
+        <script>
+            var btn = document.getElementById('read-more');
+            var box = document.getElementById('click');
+            var span = document.getElementsByClassName('close')[0];
+            btn.onclick = function () {
+                box.style.display = 'block';
+            }
+            span.onclick = function () {
+                box.style.display = 'none';
+            }
+            window.onclick = function (x) {
+                if (x.target == box) {
+                    box.style.display = 'none';
+                }
+            }
+        </script>
+
+    </section>
+    <br />
+    <div class="container-fluid" style="padding-bottom:5px;">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h2>Course Details</h2>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#undergraduate">Undergraduate</a></li>
+                <li><a data-toggle="tab" href="#graduate">Graduate</a></li>
+                <li><a data-toggle="tab" href="#course-curriculum">Course Curriculum</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="undergraduate" class="tab-pane fade in active">
+                    <h3>Undergraduate</h3>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                </div>
+                <div id="graduate" class="tab-pane fade">
+                    <h3>Graduatre</h3>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                </div>
+                <div id="course-curriculum" class="tab-pane fade">
+                    <h3>Course Curriculum</h3>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                    <ul class="col-md-2">
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                        <li><a href="#">Course</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5" style="border-left:1px solid">
+            <h2>News &amp; Events</h2>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#news">News</a></li>
+                <li><a data-toggle="tab" href="#events">Events</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="news" class="tab-pane fade in active">
+                    <h3>News</h3>
+                    <ul>
+                        <li><a href="https://www.infoworld.com/article/3235286/development-tools/whats-new-in-microsofts-visual-studio-2017.html" target="_blank">What’s new in Microsoft’s Visual Studio 2017</a></li>
+                        <li><a href="https://www.infoworld.com/article/3230507/java/java-jdk-10-what-new-features-to-expect-in-the-next-java.html"target="_blank">Java JDK 10: What new features to expect in the next Java</a></li>
+                        <li><a href="https://www.infoworld.com/article/3253308/application-development/for-developers-the-focus-is-deep-learning-multiplatform-and-coding-skills.html" target="_blank">For developers, the focus is deep learning, multiplatform, and coding skills</a></li>
+                    </ul>
+                    </div>
+                <div id="events" class="tab-pane fade">
+                    <h3>Events</h3>
+                    <ul>
+                        <li><a href="https://www.infoworld.com/article/3235286/development-tools/whats-new-in-microsofts-visual-studio-2017.html" target="_blank">What’s new in Microsoft’s Visual Studio 2017</a></li>
+                        <li><a href="https://www.infoworld.com/article/3230507/java/java-jdk-10-what-new-features-to-expect-in-the-next-java.html" target="_blank">Java JDK 10: What new features to expect in the next Java</a></li>
+                        <li><a href="https://www.infoworld.com/article/3253308/application-development/for-developers-the-focus-is-deep-learning-multiplatform-and-coding-skills.html" target="_blank">For developers, the focus is deep learning, multiplatform, and coding skills</a></li>
+                    </ul>
+
+                </div>
+
+            <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    <br/>
+    <br />
+
+            <footer style="background-color:#464646">
+                <div style="padding:0px" class="container-fluid">
+                    <div class="col-md-2">
+                        <h4 style="color:#eceeef">Contact us</h4>
+                        <address style="color:white">
+                            Texas Southern University
+                            <br />3100 Cleburne Street
+                            <br />Houston, TX 77004
+                            <br />Phone: (713) 313-7011
+                            <br />Fax: (713) 313-7851
+                            <br /> Email:
+                            <a href="mailto:sanjayrayala@live.com">
+                                <span>sanjayrayala@live.com</span>
+                            </a>
+                        </address>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom:8px">
+                        <h4 style="color:#eceeef">Our location</h4>
+                        <div id="map">MAP</div>
+                        <script>
+                            function initMap() {
+                                var uluru = { lat: 29.722947, lng: -95.366010 };
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 16,
+                                    center: uluru
+                                });
+                                var marker = new google.maps.Marker({
+                                    position: uluru,
+                                    map: map
+                                });
+                            }
+                        </script>
+                        <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4o4c8ffYYbS8Jp2A8zIOXQ4CUPGWpRGk&callback=initMap">
+                        </script>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: #eceeef;">Quick links</h4>
+                        <ul style="color:white">
+                            <li><a href="#">Enrollment Mgmt. - Texas Southern Univ.</a></li>
+                            <li><a href="#">Academic Calendar - Texas Southern Univ.</a></li>
+                            <li><a href="#">Blackboard Login @ - Texas Southern Univ.</a></li>
+                            <li><a href="#">My TSU Web - Texas Southern Univ.</a></li>
+                            <li><a href="#">Computer Science Job Board</a></li>
+                            <li><a href="#">Association for Computing Machinery</a></li>
+                            <li><a href="#">IEEE Computer Society</a></li>
+                            <li><a href="#">IEEE (Inst. of Electrical & Electronics Engr.)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+            <footer style="background-color:#383838">
+                <p style="color:#eceeef">
+                    CopyRights &copy; Sanjay Rayala
+                </p>
+            </footer>
+</body>
+</html>

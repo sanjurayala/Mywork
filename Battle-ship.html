@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Welcome to battle ship</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div id="play1"></div>
+    <script>
+// Set the head of ship and set the ship in different directions
+        function direction(location, d) {
+            var location_2 = 0;
+            var location_3 = 0;
+            var location_4 = 0;
+            var location_5 = 0;
+            if (d == 1) { location_2 = location + 10; location_3 = location + 20; location_4 = location + 30; location_5 = location + 40; }
+            else if (d == 2) { location_2 = location + 11; location_3 = location + 22; location_4 = location + 33; location_5 = location + 44; }
+            else if (d == 3) { location_2 = location + 1; location_3 = location + 2; location_4 = location + 3; location_5 = location + 4; }
+            else if (d == 4) { location_2 = location - 9; location_3 = location - 18; location_4 = location - 27; location_5 = location - 36; }
+            else if (d == 5) { location_2 = location - 10; location_3 = location - 20; location_4 = location - 30; location_5 = location - 40; }
+            else if (d == 6) { location_2 = location - 11; location_3 = location - 22; location_4 = location - 33; location_5 = location - 44; }
+            else if (d == 7) { location_2 = location - 1; location_3 = location - 2; location_4 = location - 3; location_5 = location - 4; }
+            else if (d == 8) { location_2 = location + 9; location_3 = location + 18; location_4 = location + 27; location_5 = location + 36; }
+            return [String(location), String(location_2), String(location_3), String(location_4), String(location_5)];
+        }
+        // Check if a value is in the array
+        function isInArray(value, list) {
+            for (var i = 0; i < list.length; i = i + 1) {
+                if (value == list[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        $("#battle").on("blur", function () {
+            battleShipGame();
+        });
+        function battleShipGame() {
+            var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h"];
+            var isSet = false;
+            var headOfShip;
+            while (!isSet) {
+                var headOfShip = prompt("Set up your battleship, column, row and direction(e.g. a,2,3):");
+                alert(headOfShip);
+                if (headOfShip === null || headOfShip.length !== 5) {
+                    alert("Please enter a valid column, row and direction(e.g. a,2,3)!");
+                } else {
+                    var row_1 = headOfShip[2];
+                    var column_1 = alphabet.indexOf(headOfShip[0]) + 1;
+                    var dir = headOfShip[4];
+                    if (isNaN(row_1) || isNaN(column_1) || isNaN(dir)) {
+                        alert("That's not on the board!");
+                    } else if (row_1 < 1 || row_1 > 8 || column_1 < 1 || column_1 > 8) {
+                        alert("Out of the borad!");
+                    } else if (dir < 1 || dir > 8) {
+                        alert("Please give the right direction between 1 and 8!");
+                    } else {
+                        if (isInArray(row_1, [1, 2, 3, 4])) {
+                            if (isInArray(column_1, [1, 2, 3, 4])) {
+                                if (isInArray(dir, [1, 2, 3])) {
+                                    isSet = true;
+                                }
+                                else {
+                                    return [null, dir];
+                                }
+                            } else if (isInArray(column_1, [5, 6, 7, 8])) {
+                                if (isInArray(dir, [1, 7, 8])) {
+                                    isSet = true;
+                                }
+                                else {
+                                    return [null, dir];
+                                }
+                            }
+                        } else if (isInArray(row_1, [5, 6, 7, 8])) {
+                            if (isInArray(column_1, [1, 2, 3, 4])) {
+                                if (isInArray(dir, [3, 4, 5])) {
+                                    isSet = true;
+                                }
+                                else {
+                                    return [null, dir];
+                                }
+                            } else if (isInArray(column_1, [5, 6, 7, 8])) {
+                                if (isInArray(dir, [5, 6, 7])) {
+                                    isSet = true;
+                                }
+                                else {
+                                    return [null, dir];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return [row_1 + column_1, dir];
+        }
+
+        //Guessing
+        function manu_guessing() {
+            var guess;
+            var guesses = 0;
+            var hit_guess = [];
+            var hits = 0;
+            var isSunk = false;
+            var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h"];
+            while (!isSunk) {
+                guess = prompt("Fire!!! (e.g a4,b3):");
+                if (guess === null || guess.length !== 2) {
+                    alert("Please enter a valid cell number!");
+                } else {
+                    var row = guess[1];
+                    var column = alphabet.indexOf(guess[0]) + 1;
+
+                    if (isNaN(row) || isNaN(column)) {
+                        alert("That's not on the board!");
+                    } else if (row < 1 || row > 8 || column < 1 || column > 8) {
+                        alert("Out of the borad!");
+                    } else {
+                        guess = row + column;
+                        guesses += 1;
+                        if (isInArray(guess, ship)) {
+                            if (!isInArray(guess, hit_guess)) {
+                                hit_guess.push(guess);
+                                hits += 1;
+                                alert("Gotta hit!");
+                            } else {
+                                alert("Don't hit me twice!");
+                            }
+                            if (hits == 5) {
+                                isSunk = true;
+                                alert("You sank my battleship!");
+                            }
+                        } else {
+                            alert("Miss!!!");
+                        }
+                    }
+                }
+            }
+            return guesses;
+        }
+
+        function auto_guessing(ship) {
+            var guess;
+            var guesses = {};
+            var hit_guess = [];
+            var hit_result = [];
+            var hits = 0;
+            var isSunk = false;
+            var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h"];
+            while (!isSunk) {
+                var i = 1;
+                while (i < 5) {
+                    var j = 1;
+                    while (j < 5) {
+                        guess = Number(String(i) + String(j));
+                        if (isInArray(guess, ship)) {
+                            var row = i;
+                            var column = j;
+                            hit_guess.push(alphabet[column - 1] + row);
+                            hit_result.push("hit");
+                            i = 4;
+                            isSunk = true;
+                            if (isInArray(guess + 1, ship)) {
+                                hit_guess.push(alphabet[column] + row, alphabet[column + 1] + row, alphabet[column + 2] + row, alphabet[column + 3] + row);
+                                hit_result.push("hit", "hit", "hit", "hit");
+                                break;
+                            } else if (isInArray(guess + 10, ship)) {
+                                hit_guess.push(alphabet[column] + row);
+                                hit_result.push("miss");
+                                hit_guess.push(alphabet[column - 1] + (row + 1), alphabet[column - 1] + (row + 2), alphabet[column - 1] + (row + 3), alphabet[column - 1] + (row + 4));
+                                hit_result.push("hit", "hit", "hit", "hit");
+                                break;
+                            } else if (isInArray(guess + 11, ship)) {
+                                hit_guess.push(alphabet[column] + row, alphabet[column - 1] + (row + 1));
+                                hit_result.push("miss", "miss");
+                                hit_guess.push(alphabet[column] + (row + 1), alphabet[column + 1] + (row + 2), alphabet[column + 2] + (row + 3), alphabet[column + 3] + (row + 4));
+                                hit_result.push("hit", "hit", "hit", "hit");
+                                break;
+                            }
+
+                        } else {
+                            hit_guess.push(alphabet[j - 1] + i);
+                            hit_result.push("miss");
+                            j = j + 1;
+                        }
+                    }
+                    i = i + 1;
+                }
+                if (!isSunk) {
+                    for (i = 8; i > 4; i--) {
+                        for (j = 8; j > 4; j--) {
+                            guess = Number(String(i) + String(j));
+                            if (isInArray(guess, ship)) {
+                                row = i;
+                                col = j;
+                                hit_guess.push(alphabet[column - 1] + row);
+                                hit_result.push("hit");
+                                i = 4;
+                                isSunk = true;
+                                if (isInArray(guess - 1, ship)) {
+                                    hit_guess.push(alphabet[column - 2] + row, alphabet[column - 3] + row, alphabet[column - 4] + row, alphabet[column - 5] + row);
+                                    hit_result.push("hit", "hit", "hit", "hit");
+                                    break;
+                                } else if (isInArray(guess - 10, ship)) {
+                                    hit_guess.push(alphabet[column - 2] + row);
+                                    hit_result.push("miss");
+                                    hit_guess.push(alphabet[col - 1] + (row - 1), alphabet[column - 1] + (column - 2), alphabet[col - 1] + (row - 3), alphabet[column - 1] + (row - 4));
+                                    hit_result.push("hit", "hit", "hit", "hit");
+                                    break;
+                                } else if (isInArray(guess - 11, ship)) {
+                                    hit_guess.push(alphabet[column - 2] + row, alphabet[column - 1] + row - 1);
+                                    hit_result.push("miss", "miss");
+                                    hit_guess.push(alphabet[column - 2] + (row - 1), alphabet[column - 3] + (row - 2), alphabet[column - 4] + (row - 3), alphabet[column - 5] + (row - 4));
+                                    hit_result.push("hit", "hit", "hit", "hit");
+                                    break;
+                                }
+
+                            } else {
+
+                                hit_guess.push(alphabet[j - 1] + i);
+                                hit_result.push("miss");
+                            }
+                        }
+                    }
+                }
+                if (!isSunk) {
+                    if (isInArray(81, ship)) {
+                        hit_guess.push(alphabet[0] + 8, alphabet[1] + 7, alphabet[2] + 6, alphabet[3] + 5, alphabet[4] + 4);
+                        hit_result.push("hit", "hit", "hit", "hit", "hit");
+                    } else {
+                        hit_guess.push(alphabet[0] + 8);
+                        hit_result.push("miss");
+                        if (isInArray(72, ship)) {
+                            hit_guess.push(alphabet[1] + 7, alphabet[2] + 6, alphabet[3] + 5, alphabet[4] + 4, alphabet[5] + 3);
+                            hit_result.push("hit", "hit", "hit", "hit", "hit");
+                            break;
+                        } else {
+                            hit_guess.push(alphabet[1] + 7);
+                            hit_result.push("miss");
+                            if (isInArray(63, ship)) {
+                                hit_guess.push(alphabet[2] + 6, alphabet[3] + 5, alphabet[4] + 4, alphabet[5] + 3, alphabet[6] + 2);
+                                hit_result.push("hit", "hit", "hit", "hit", "hit");
+                                break;
+                            } else {
+                                hit_guess.push(alphabet[2] + 6);
+                                hit_result.push("miss");
+                                hit_guess.push(alphabet[3] + 5, alphabet[4] + 4, alphabet[5] + 3, alphabet[6] + 2, alphabet[7] + 1);
+                                hit_result.push("hit", "hit", "hit", "hit", "hit");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+
+
+            }
+            for (var k = 0; k < hit_guess.length; k += 1) {
+                guesses[hit_guess[k]] = hit_result[k];
+            }
+            return guesses;
+
+        }
+
+
+        // Sum function
+        function average(list) {
+            var total = 0;
+            for (var i = 0; i < list.length; i += 1) {
+                total = list[i] + total;
+            }
+            return total / list.length;
+        }
+
+        // Play Game
+        var isPlayed = false;
+        while (!isPlayed) {
+            var playTimes = 2;
+            if (playTimes > 0 && playTimes < 50) {
+                isPlayed = true;
+                var guesses_ar = [];
+                while (playTimes > 0) {
+                    var [location_1, dir] = battleShipGame();
+                    if (location_1 == null) {
+                        alert("Opps!The Invalid Ship is detected!You miss one game!!!")
+                        playTimes = playTimes - 1;
+                    } else {
+                        ;
+                        var ship = direction(Number(location_1), dir);
+                        //var win_game = 0;
+                        var guesses = auto_guessing(ship);
+                        playTimes = playTimes - 1;
+                        guesses_ar.push(Object.keys(guesses).length / 5);
+                        var stats = "The hit records are " + JSON.stringify(guesses, null, 4) + '.';
+                        var play1 = document.getElementById('play1');
+                        play1.innerHTML += stats + '<br>';
+                        var hit_No = "The hit ratio is " + Object.keys(guesses).length / 5 + ' .';
+                        var play2 = document.getElementById('play1');
+                        play2.innerHTML += hit_No + '<br>';
+                        
+                    }
+                }
+                var stats_avg = "The average of hit rate is"  + (average(guesses_ar)) + '.';
+                var play3 = document.getElementById('play1');
+                play3.innerHTML += stats_avg + '<br>';
+            } else {
+                alert("Please enter a valid game number!");
+            }
+
+        }
+    </script>
+</body>
+</html>

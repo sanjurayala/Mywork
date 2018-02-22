@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Map Location Demo</title>
+</head>
+<body onload="getLocation()">
+    <h1> Understanding the Geo-Location Feature of HTML 5</h1>
+    <p> Current Location: <span id="lblLatiAndLong" /></p>
+    <div id="divMap">
+    </div>
+    <script>
+        
+            function getLocation()
+            {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(OnSuccess, OnError);
+                }
+                else
+                {
+                    alert("Please update your browser");
+                }
+            }
+            
+            function OnSuccess(position)
+            {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                var latiandlong = latitude + "," + longitude;
+                alert("Current Position :" + latiandlong);
+                document.getElementById("lblLatiAndLong").innerHTML = latiandlong;
+                var map = "http://maps.googleapis.com/maps/api/staticmap?center=" + latiandlong +
+                    "&zoom=15&size=500x500&sensor=false";
+                document.getElementById("divMap").innerHTML= "<img src='" + map + "' />";
+
+            }
+            function OnError(error)
+            {
+                alert("Error while processing the request");
+            }
+            
+
+    </script>
+
+</body>
+</html>
